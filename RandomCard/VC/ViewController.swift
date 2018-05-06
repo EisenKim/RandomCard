@@ -13,14 +13,16 @@ class ViewController: UIViewController {
     var arrMeterials:[String] = ["해","달","별","양","염소","꽃","구름","창","칼","방패"]
     var arrCards = [String]()
     
+    @IBOutlet weak var viewCard1: UIView!
+    @IBOutlet weak var viewCard2: UIView!
+    @IBOutlet weak var viewCard3: UIView!
+    
+    @IBOutlet weak var btnViewCard: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.arrCards = self.generateRandomCard()
         
-        for i in 0 ..< 3 {
-            print(arrCards[i])
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,5 +44,12 @@ class ViewController: UIViewController {
         return arrResult
     }
     
+    @IBAction func actViewCard(_ sender: Any) {
+        self.arrCards = self.generateRandomCard()
+        
+        for i in 0 ..< 3 {
+            print(arrCards[i])
+        }
+    }
 }
 
