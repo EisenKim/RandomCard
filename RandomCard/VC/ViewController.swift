@@ -30,6 +30,9 @@ class ViewController: UIViewController {
     var viewRandomCard5 = CardView()
     var viewRandomCard6 = CardView()
     
+    var iRemainCardCount: Int = 0
+    var isStartGame: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -102,15 +105,48 @@ class ViewController: UIViewController {
     }
     
     @objc func changeCard(_ sender:UIGestureRecognizer) {
-        let index : Int = (sender.view?.tag)!
-        print("Change Card = \(index)")
-        
+        if self.isStartGame {
+            let index : Int = (sender.view?.tag)!
+            print("Change Card = \(index)")
+            
+            if self.iRemainCardCount > 0 {
+                switch (index) {
+                case 1:
+                    self.viewRandomCard1.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    break
+                case 2:
+                    self.viewRandomCard2.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    break
+                case 3:
+                    self.viewRandomCard3.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    break
+                case 4:
+                    self.viewRandomCard4.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    break
+                case 5:
+                    self.viewRandomCard5.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    break
+                case 6:
+                    self.viewRandomCard6.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    break
+                default:
+                    break
+                }
+                self.iRemainCardCount = self.iRemainCardCount - 1
+                print("Remain Card Count = \(self.iRemainCardCount)")
+            } else {
+                print("Card is empty")
+            }
+        }
     }
     
     @IBAction func actViewCard(_ sender: Any) {
+        self.isStartGame = true
         self.arrCards.removeAll()
-        
         self.arrCards = self.generateRandomCard()
+        
+        self.iRemainCardCount = self.arrCards.count
+        print("Remain Card Count = \(self.iRemainCardCount)")
         
 //        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
         
