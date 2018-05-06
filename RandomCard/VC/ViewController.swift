@@ -17,12 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewCard1: UIView!
     @IBOutlet weak var viewCard2: UIView!
     @IBOutlet weak var viewCard3: UIView!
+    @IBOutlet weak var viewCard4: UIView!
+    @IBOutlet weak var viewCard5: UIView!
+    @IBOutlet weak var viewCard6: UIView!
     
     @IBOutlet weak var btnViewCard: UIButton!
     
     var viewRandomCard1 = CardView()
     var viewRandomCard2 = CardView()
     var viewRandomCard3 = CardView()
+    var viewRandomCard4 = CardView()
+    var viewRandomCard5 = CardView()
+    var viewRandomCard6 = CardView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +38,16 @@ class ViewController: UIViewController {
         self.viewCard1.layer.cornerRadius = 8.0
         self.viewCard2.layer.cornerRadius = 8.0
         self.viewCard3.layer.cornerRadius = 8.0
+        self.viewCard4.layer.cornerRadius = 8.0
+        self.viewCard5.layer.cornerRadius = 8.0
+        self.viewCard6.layer.cornerRadius = 8.0
         
         self.viewRandomCard1 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         self.viewRandomCard2 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         self.viewRandomCard3 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
+        self.viewRandomCard4 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
+        self.viewRandomCard5 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
+        self.viewRandomCard6 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         
     }
 
@@ -69,10 +81,16 @@ class ViewController: UIViewController {
         self.viewRandomCard1.lblName.text = self.arrCards[0]
         self.viewRandomCard2.lblName.text = self.arrCards[1]
         self.viewRandomCard3.lblName.text = self.arrCards[2]
+        self.viewRandomCard4.lblName.text = self.arrCards[3]
+        self.viewRandomCard5.lblName.text = self.arrCards[4]
+        self.viewRandomCard6.lblName.text = self.arrCards[5]
         
         self.viewCard1.addSubview(viewRandomCard1)
         self.viewCard2.addSubview(viewRandomCard2)
         self.viewCard3.addSubview(viewRandomCard3)
+        self.viewCard4.addSubview(viewRandomCard4)
+        self.viewCard5.addSubview(viewRandomCard5)
+        self.viewCard6.addSubview(viewRandomCard6)
     }
 }
 
