@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var arrMeterials:[String] = ["해","달","별","양","염소","꽃","구름","창","칼","방패"]
+    var arrMeterials:[String] = ["해","달","별","양","염소","꽃","구름","창","칼","방패","지팡이"]
     var arrCards = [String]()
     
     @IBOutlet weak var viewCard1: UIView!
@@ -42,22 +42,26 @@ class ViewController: UIViewController {
     }
 
     func generateRandomCard() -> [String]  {
+        var arrTemp = self.arrMeterials
         var arrResult = [String]()
-        while arrMeterials.count > 0 {
+        while arrTemp.count > 0 {
             // random key from array
-            let arrayKey = Int(arc4random_uniform(UInt32(arrMeterials.count)))
+            let arrayKey = Int(arc4random_uniform(UInt32(arrTemp.count)))
             // your random number
-            let randCard = arrMeterials[arrayKey]
+            let randCard = arrTemp[arrayKey]
             arrResult.append(randCard)
             // make sure the number isnt repeated
-            arrMeterials.remove(at: arrayKey)
+            arrTemp.remove(at: arrayKey)
         }
         return arrResult
     }
     
     @IBAction func actViewCard(_ sender: Any) {
         self.arrCards.removeAll()
+        
         self.arrCards = self.generateRandomCard()
+        
+        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
         
         self.viewRandomCard1.lblName.text = self.arrCards[0]
         self.viewRandomCard2.lblName.text = self.arrCards[1]
