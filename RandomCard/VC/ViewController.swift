@@ -49,6 +49,36 @@ class ViewController: UIViewController {
         self.viewRandomCard5 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         self.viewRandomCard6 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         
+        let gestureChangeCard1: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeCard(_:)))
+        gestureChangeCard1.numberOfTapsRequired = 1
+        self.viewCard1.tag = 1
+        self.viewCard1.addGestureRecognizer(gestureChangeCard1)
+        
+        let gestureChangeCard2: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeCard(_:)))
+        gestureChangeCard2.numberOfTapsRequired = 1
+        self.viewCard2.tag = 2
+        self.viewCard2.addGestureRecognizer(gestureChangeCard2)
+        
+        let gestureChangeCard3: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeCard(_:)))
+        gestureChangeCard3.numberOfTapsRequired = 1
+        self.viewCard3.tag = 3
+        self.viewCard3.addGestureRecognizer(gestureChangeCard3)
+        
+        let gestureChangeCard4: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeCard(_:)))
+        gestureChangeCard3.numberOfTapsRequired = 1
+        self.viewCard4.tag = 4
+        self.viewCard4.addGestureRecognizer(gestureChangeCard4)
+        
+        let gestureChangeCard5: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeCard(_:)))
+        gestureChangeCard5.numberOfTapsRequired = 1
+        self.viewCard5.tag = 5
+        self.viewCard5.addGestureRecognizer(gestureChangeCard5)
+        
+        let gestureChangeCard6: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeCard(_:)))
+        gestureChangeCard6.numberOfTapsRequired = 1
+        self.viewCard6.tag = 6
+        self.viewCard6.addGestureRecognizer(gestureChangeCard6)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,12 +101,18 @@ class ViewController: UIViewController {
         return arrResult
     }
     
+    @objc func changeCard(_ sender:UIGestureRecognizer) {
+        let index : Int = (sender.view?.tag)!
+        print("Change Card = \(index)")
+        
+    }
+    
     @IBAction func actViewCard(_ sender: Any) {
         self.arrCards.removeAll()
         
         self.arrCards = self.generateRandomCard()
         
-        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
+//        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
         
         self.viewRandomCard1.lblName.text = self.arrCards[0]
         self.viewRandomCard2.lblName.text = self.arrCards[1]
