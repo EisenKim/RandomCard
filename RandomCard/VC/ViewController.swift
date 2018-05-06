@@ -19,9 +19,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var btnViewCard: UIButton!
     
+    var viewRandomCard1 = CardView()
+    var viewRandomCard2 = CardView()
+    var viewRandomCard3 = CardView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.viewCard1.layer.cornerRadius = 8.0
+        self.viewCard2.layer.cornerRadius = 8.0
+        self.viewCard3.layer.cornerRadius = 8.0
+        
+        self.viewRandomCard1 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
+        self.viewRandomCard2 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
+        self.viewRandomCard3 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         
     }
 
@@ -45,11 +56,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actViewCard(_ sender: Any) {
+        self.arrCards.removeAll()
         self.arrCards = self.generateRandomCard()
         
-        for i in 0 ..< 3 {
-            print(arrCards[i])
-        }
+        self.viewRandomCard1.lblName.text = self.arrCards[0]
+        self.viewRandomCard2.lblName.text = self.arrCards[1]
+        self.viewRandomCard3.lblName.text = self.arrCards[2]
+        
+        self.viewCard1.addSubview(viewRandomCard1)
+        self.viewCard2.addSubview(viewRandomCard2)
+        self.viewCard3.addSubview(viewRandomCard3)
     }
 }
 

@@ -17,6 +17,8 @@
 		E5117C35209EDE4400F921DA /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5117C31209EDE4400F921DA /* DecimalFormatter.swift */; };
 		E5117C36209EDE4400F921DA /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5117C32209EDE4400F921DA /* String+Category.swift */; };
 		E5117C37209EDE4400F921DA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5117C33209EDE4400F921DA /* String.swift */; };
+		E5117C3C209EEFAB00F921DA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5117C3B209EEFAB00F921DA /* CardView.swift */; };
+		E5117C3E209EEFE600F921DA /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5117C3D209EEFE600F921DA /* CardView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E5117C31209EDE4400F921DA /* DecimalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 		E5117C32209EDE4400F921DA /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		E5117C33209EDE4400F921DA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		E5117C3B209EEFAB00F921DA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		E5117C3D209EEFE600F921DA /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		E5117C19209EDC6D00F921DA /* RandomCard */ = {
 			isa = PBXGroup;
 			children = (
+				E5117C3A209EEF6900F921DA /* Views */,
 				E5117C38209EDFA000F921DA /* VC */,
 				E5117C39209EDFA800F921DA /* Storyboards */,
 				E5117C2F209EDE4400F921DA /* Extension */,
@@ -101,6 +106,15 @@
 				E5117C1E209EDC6E00F921DA /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E5117C3A209EEF6900F921DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5117C3B209EEFAB00F921DA /* CardView.swift */,
+				E5117C3D209EEFE600F921DA /* CardView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +177,7 @@
 			files = (
 				E5117C28209EDC7D00F921DA /* LaunchScreen.storyboard in Resources */,
 				E5117C25209EDC7D00F921DA /* Assets.xcassets in Resources */,
+				E5117C3E209EEFE600F921DA /* CardView.xib in Resources */,
 				E5117C20209EDC6E00F921DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +195,7 @@
 				E5117C23209EDC6E00F921DA /* RandomCard.xcdatamodeld in Sources */,
 				E5117C37209EDE4400F921DA /* String.swift in Sources */,
 				E5117C1B209EDC6D00F921DA /* AppDelegate.swift in Sources */,
+				E5117C3C209EEFAB00F921DA /* CardView.swift in Sources */,
 				E5117C35209EDE4400F921DA /* DecimalFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
