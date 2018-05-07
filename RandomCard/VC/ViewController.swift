@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var arrMeterials:[String] = ["해","달","별","양","염소","꽃","구름","창","칼","방패","지팡이","소","열쇠","무지개","나무","비둘기","까마귀","비","탑","돌","낙타","가시덤불","활","화살","나귀","구덩이","감옥","밀","보리","뱀","개구리","메뚜기","금","은","구리","장막","무화과","석류","포도","천사","항아리","뿔나팔","기름","겉옷","무릿매","수금","산","성전","빵(또는 떡)","병거","물고기","폭풍우","두루마리","사자","왕관","물","불","무덤","배","보물"]
+    var arrMeterials:[[String:String]] = [["1":"해"],["2":"별"],["3":"양"],["4":"염소"],["5":"꽃"],["6":"구름"],["7":"창"],["8":"칼"],["9":"방패"],["10":"지팡이"],["11":"소"],["12":"열쇠"],["13":"무지개"],["14":"나무"],["15":"비둘기"],["16":"까마귀"],["17":"비"],["18":"탑"],["19":"돌"],["20":"낙타"],["21":"가시덤불"],["22":"활"],["23":"화살"],["24":"나귀"],["25":"구덩이"],["26":"감옥"],["27":"밀"],["28":"뱀"],["29":"개구리"],["30":"메뚜기"],["31":"금"],["32":"은"],["33":"구리"],["34":"장막"],["35":"무화과"],["36":"석류"],["37":"포도"],["38":"천사"],["39":"항아리"],["40":"뿔나팔"],["41":"기름"],["42":"겉옷"],["43":"무릿매"],["44":"수금"],["45":"산"],["46":"성전"],["47":"빵(또는 떡)"],["48":"병거"],["49":"물고기"],["50":"비"],["51":"바람"],["52":"두루마리"],["53":"사자"],["54":"왕관"],["55":"물"],["56":"불"],["57":"무덤"],["58":"배"],["59":"보물"],["60":"광야"]]
     
-    var arrCards = [String]()
+//    var arrMeterialsImage:[String] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","51","52","53","54","55","56","57","58","59","60"]
+    
+    var arrCards = [[String:String]]()
     
     @IBOutlet weak var viewCard1: UIView!
     @IBOutlet weak var viewCard2: UIView!
@@ -88,10 +90,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        get {
+            return true
+        }
+    }
 
-    func generateRandomCard() -> [String]  {
+    func generateRandomCard() -> [[String:String]]  {
         var arrTemp = self.arrMeterials
-        var arrResult = [String]()
+        var arrResult = [[String:String]]()
         while arrTemp.count > 0 {
             // random key from array
             let arrayKey = Int(arc4random_uniform(UInt32(arrTemp.count)))
@@ -112,22 +120,40 @@ class ViewController: UIViewController {
             if self.iRemainCardCount > 0 {
                 switch (index) {
                 case 1:
-                    self.viewRandomCard1.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
+                        self.viewRandomCard1.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                        self.viewRandomCard1.ivImage.image = UIImage(named: key)
+                    }
                     break
                 case 2:
-                    self.viewRandomCard2.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
+                        self.viewRandomCard2.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                        self.viewRandomCard2.ivImage.image = UIImage(named: key)
+                    }
                     break
                 case 3:
-                    self.viewRandomCard3.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
+                        self.viewRandomCard3.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                        self.viewRandomCard3.ivImage.image = UIImage(named: key)
+                    }
                     break
                 case 4:
-                    self.viewRandomCard4.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
+                        self.viewRandomCard4.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                        self.viewRandomCard4.ivImage.image = UIImage(named: key)
+                    }
                     break
                 case 5:
-                    self.viewRandomCard5.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
+                        self.viewRandomCard5.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                        self.viewRandomCard5.ivImage.image = UIImage(named: key)
+                    }
                     break
                 case 6:
-                    self.viewRandomCard6.lblName.text = self.arrCards[self.iRemainCardCount - 1]
+                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
+                        self.viewRandomCard6.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                        self.viewRandomCard6.ivImage.image = UIImage(named: key)
+                    }
                     break
                 default:
                     break
@@ -150,12 +176,36 @@ class ViewController: UIViewController {
         
 //        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
         
-        self.viewRandomCard1.lblName.text = self.arrCards[0]
-        self.viewRandomCard2.lblName.text = self.arrCards[1]
-        self.viewRandomCard3.lblName.text = self.arrCards[2]
-        self.viewRandomCard4.lblName.text = self.arrCards[3]
-        self.viewRandomCard5.lblName.text = self.arrCards[4]
-        self.viewRandomCard6.lblName.text = self.arrCards[5]
+        for key in self.arrCards[0].keys {
+            self.viewRandomCard1.lblName.text = self.arrCards[0][key]
+            self.viewRandomCard1.ivImage.image = UIImage(named: key)
+        }
+        for key in self.arrCards[1].keys {
+            self.viewRandomCard2.lblName.text = self.arrCards[1][key]
+            self.viewRandomCard2.ivImage.image = UIImage(named: key)
+        }
+        for key in self.arrCards[2].keys {
+            self.viewRandomCard3.lblName.text = self.arrCards[2][key]
+            self.viewRandomCard3.ivImage.image = UIImage(named: key)
+        }
+        for key in self.arrCards[3].keys {
+            self.viewRandomCard4.lblName.text = self.arrCards[3][key]
+            self.viewRandomCard4.ivImage.image = UIImage(named: key)
+        }
+        for key in self.arrCards[4].keys {
+            self.viewRandomCard5.lblName.text = self.arrCards[4][key]
+            self.viewRandomCard5.ivImage.image = UIImage(named: key)
+        }
+        for key in self.arrCards[5].keys {
+            self.viewRandomCard6.lblName.text = self.arrCards[5][key]
+            self.viewRandomCard6.ivImage.image = UIImage(named: key)
+        }
+        
+//        self.viewRandomCard2.lblName.text = self.arrCards[1]
+//        self.viewRandomCard3.lblName.text = self.arrCards[2]
+//        self.viewRandomCard4.lblName.text = self.arrCards[3]
+//        self.viewRandomCard5.lblName.text = self.arrCards[4]
+//        self.viewRandomCard6.lblName.text = self.arrCards[5]
         
         self.viewCard1.addSubview(viewRandomCard1)
         self.viewCard2.addSubview(viewRandomCard2)
