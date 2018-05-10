@@ -63,6 +63,13 @@
                                             <action selector="actViewCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTR-zv-Pgo"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAy-7o-ybQ">
+                                        <rect key="frame" x="774" y="720" width="240" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -80,6 +87,7 @@
                     </view>
                     <connections>
                         <outlet property="btnViewCard" destination="KJH-iG-iXz" id="Wu3-AW-xHG"/>
+                        <outlet property="lblRemainCards" destination="rAy-7o-ybQ" id="mEy-pT-5vW"/>
                         <outlet property="viewCard1" destination="uKP-u3-oac" id="vzc-kQ-uHb"/>
                         <outlet property="viewCard2" destination="0wo-kl-2hS" id="0do-Jr-QPM"/>
                         <outlet property="viewCard3" destination="fEQ-AY-Lfh" id="Uxx-Hz-kW4"/>

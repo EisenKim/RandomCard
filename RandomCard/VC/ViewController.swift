@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewCard6: UIView!
     
     @IBOutlet weak var btnViewCard: UIButton!
+    @IBOutlet weak var lblRemainCards: UILabel!
     
     var viewRandomCard1 = CardView()
     var viewRandomCard2 = CardView()
@@ -160,6 +161,8 @@ class ViewController: UIViewController {
                 }
                 self.iRemainCardCount = self.iRemainCardCount - 1
                 print("Remain Card Count = \(self.iRemainCardCount)")
+                self.lblRemainCards.text = "남은카드: \(self.iRemainCardCount)"
+                
             } else {
                 print("Card is empty")
             }
@@ -173,6 +176,7 @@ class ViewController: UIViewController {
         
         self.iRemainCardCount = self.arrCards.count
         print("Remain Card Count = \(self.iRemainCardCount)")
+        self.lblRemainCards.text = "남은카드: \(self.iRemainCardCount)"
         
 //        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
         
