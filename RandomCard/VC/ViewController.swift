@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var arrCards = [[String:String]]()
     
+    @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viewCard1: UIView!
     @IBOutlet weak var viewCard2: UIView!
     @IBOutlet weak var viewCard3: UIView!
@@ -24,6 +25,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewCard6: UIView!
     
     @IBOutlet weak var btnViewCard: UIButton!
+    @IBOutlet weak var btnTimerReset: UIButton!
+    
+    @IBOutlet weak var lblTimer: UILabel!
     @IBOutlet weak var lblRemainCards: UILabel!
     
     var viewRandomCard1 = CardView()
@@ -36,9 +40,47 @@ class ViewController: UIViewController {
     var iRemainCardCount: Int = 0
     var isStartGame: Bool = false
     
+    var timer : Timer? = nil
+    var count : Int = 0         // timer count (180sec == 3min)
+    var isBlockCertNumberAction : Bool = false
+    
+    func startTimer() {
+        count = 180
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerUpdate), userInfo: nil, repeats: true)
+        isBlockCertNumberAction = true
+    }
+    
+    func resetTimer(){
+        timer?.invalidate()
+        startTimer()
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        isBlockCertNumberAction = false
+    }
+    
+    @objc func timerUpdate() {
+        
+        if(count >= 0){
+            let seconds = count % 60
+            let minutes = (count / 60) % 60
+            let strMinutes = minutes > 9 ? String(minutes) : "0" + String(minutes)
+            let strSeconds = seconds > 9 ? String(seconds) : "0" + String(seconds)
+            
+            self.lblTimer.isHidden = false
+            self.lblTimer.text = strMinutes + ":" + strSeconds    // 라벨에 타이머 출력
+            count = count - 1
+        } else {
+            isBlockCertNumberAction = false
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.lblName.text = "이름: \(GlobalData.sharedInstance.strName ?? "")"
+        self.lblTimer.layer.borderWidth = 1
         
         print("\(self.arrMeterials.count)")
         self.viewCard1.layer.cornerRadius = 8.0
@@ -169,6 +211,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func resetTimer(_ sender: Any) {
+        self.resetTimer()
+    }
+    
     @IBAction func actViewCard(_ sender: Any) {
         self.isStartGame = true
         self.arrCards.removeAll()
@@ -217,6 +263,8 @@ class ViewController: UIViewController {
         self.viewCard4.addSubview(viewRandomCard4)
         self.viewCard5.addSubview(viewRandomCard5)
         self.viewCard6.addSubview(viewRandomCard6)
+        
+        self.resetTimer()
     }
 }
 
