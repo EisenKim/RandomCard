@@ -73,6 +73,14 @@ class ViewController: UIViewController {
             count = count - 1
         } else {
             isBlockCertNumberAction = false
+            let message = "시간 초과!!!"
+            let alert = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: { Void in
+                
+            })
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     override func viewDidLoad() {
@@ -81,8 +89,8 @@ class ViewController: UIViewController {
         
         self.lblName.text = "이름: \(GlobalData.sharedInstance.strName ?? "")"
         self.lblTimer.layer.borderWidth = 1
+        self.lblTimer.layer.borderColor = UIColor.lightGray.cgColor
         
-        print("\(self.arrMeterials.count)")
         self.viewCard1.layer.cornerRadius = 8.0
         self.viewCard2.layer.cornerRadius = 8.0
         self.viewCard3.layer.cornerRadius = 8.0
@@ -212,7 +220,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetTimer(_ sender: Any) {
-        self.resetTimer()
+        if self.isStartGame {
+            self.resetTimer()
+        }
     }
     
     @IBAction func actViewCard(_ sender: Any) {
