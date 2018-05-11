@@ -58,8 +58,8 @@ class IntroViewController: UIViewController {
             self.present(viewController, animated: true, completion: nil)
         } else {
             // Occur Error
-            let message = "이름을 넣어주세요!!!"
-            let alert = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            let message = "이름을 넣지 않으면 게임을 진행할 수 없어요~!!"
+            let alert = UIAlertController(title: "이름을 넣어주세요!!!", message: message, preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "확인", style: .default, handler: { Void in
                 
             })
