@@ -73,10 +73,12 @@ class ViewController: UIViewController {
             count = count - 1
         } else {
             isBlockCertNumberAction = false
-            let message = "시간 초과!!!"
-            let alert = UIAlertController(title: "알림", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            self.stopTimer()
+            
+            let message = "턴이 종료 되었습니다."
+            let alert = UIAlertController(title: "시간 초과!!!", message: message, preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "확인", style: .default, handler: { Void in
-                
+                self.btnViewCard.isEnabled = true
             })
             
             alert.addAction(okAction)
@@ -90,6 +92,9 @@ class ViewController: UIViewController {
         self.lblName.text = "이름: \(GlobalData.sharedInstance.strName ?? "")"
         self.lblTimer.layer.borderWidth = 1
         self.lblTimer.layer.borderColor = UIColor.lightGray.cgColor
+        
+        self.btnViewCard.setTitle("카드 보여주기", for: .normal)
+        self.btnViewCard.setTitle("게임 진행 중...", for: .disabled)
         
         self.viewCard1.layer.cornerRadius = 8.0
         self.viewCard2.layer.cornerRadius = 8.0
@@ -275,6 +280,8 @@ class ViewController: UIViewController {
         self.viewCard6.addSubview(viewRandomCard6)
         
         self.resetTimer()
+        self.btnViewCard.isEnabled = false
+        
     }
 }
 
