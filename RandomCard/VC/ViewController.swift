@@ -173,48 +173,51 @@ class ViewController: UIViewController {
             let index : Int = (sender.view?.tag)!
             print("Change Card = \(index)")
             
+            let cardIndex: Int = 0  //(self.iRemainCardCount - 1)
+            
             if self.iRemainCardCount > 0 {
                 switch (index) {
                 case 1:
-                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
-                        self.viewRandomCard1.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                    for key in self.arrCards[cardIndex].keys {
+                        self.viewRandomCard1.lblName.text = self.arrCards[cardIndex][key]
                         self.viewRandomCard1.ivImage.image = UIImage(named: key)
                     }
                     break
                 case 2:
-                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
-                        self.viewRandomCard2.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                    for key in self.arrCards[cardIndex].keys {
+                        self.viewRandomCard2.lblName.text = self.arrCards[cardIndex][key]
                         self.viewRandomCard2.ivImage.image = UIImage(named: key)
                     }
                     break
                 case 3:
-                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
-                        self.viewRandomCard3.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                    for key in self.arrCards[cardIndex].keys {
+                        self.viewRandomCard3.lblName.text = self.arrCards[cardIndex][key]
                         self.viewRandomCard3.ivImage.image = UIImage(named: key)
                     }
                     break
                 case 4:
-                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
-                        self.viewRandomCard4.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                    for key in self.arrCards[cardIndex].keys {
+                        self.viewRandomCard4.lblName.text = self.arrCards[cardIndex][key]
                         self.viewRandomCard4.ivImage.image = UIImage(named: key)
                     }
                     break
                 case 5:
-                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
-                        self.viewRandomCard5.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                    for key in self.arrCards[cardIndex].keys {
+                        self.viewRandomCard5.lblName.text = self.arrCards[cardIndex][key]
                         self.viewRandomCard5.ivImage.image = UIImage(named: key)
                     }
                     break
                 case 6:
-                    for key in self.arrCards[self.iRemainCardCount - 1].keys {
-                        self.viewRandomCard6.lblName.text = self.arrCards[self.iRemainCardCount - 1][key]
+                    for key in self.arrCards[cardIndex].keys {
+                        self.viewRandomCard6.lblName.text = self.arrCards[cardIndex][key]
                         self.viewRandomCard6.ivImage.image = UIImage(named: key)
                     }
                     break
                 default:
                     break
                 }
-                self.iRemainCardCount = self.iRemainCardCount - 1
+                self.arrCards.remove(at: cardIndex)
+                self.iRemainCardCount = self.arrCards.count
                 print("Remain Card Count = \(self.iRemainCardCount)")
                 self.lblRemainCards.text = "남은카드: \(self.iRemainCardCount)"
                 
@@ -246,42 +249,49 @@ class ViewController: UIViewController {
         self.arrCards.removeAll()
         self.arrCards = self.generateRandomCard()
         
-        self.iRemainCardCount = self.arrCards.count
-        print("Remain Card Count = \(self.iRemainCardCount)")
-        self.lblRemainCards.text = "남은카드: \(self.iRemainCardCount)"
-        
 //        print("\(self.arrCards[0]), \(self.arrCards[1]), \(self.arrCards[2])")
         
         for key in self.arrCards[0].keys {
             self.viewRandomCard1.lblName.text = self.arrCards[0][key]
             self.viewRandomCard1.ivImage.image = UIImage(named: key)
         }
-        for key in self.arrCards[1].keys {
-            self.viewRandomCard2.lblName.text = self.arrCards[1][key]
+        // 출력한 카드는 제거
+        self.arrCards.remove(at: 0)
+        
+        for key in self.arrCards[0].keys {
+            self.viewRandomCard2.lblName.text = self.arrCards[0][key]
             self.viewRandomCard2.ivImage.image = UIImage(named: key)
         }
-        for key in self.arrCards[2].keys {
-            self.viewRandomCard3.lblName.text = self.arrCards[2][key]
+        // 출력한 카드는 제거
+        self.arrCards.remove(at: 0)
+        
+        for key in self.arrCards[0].keys {
+            self.viewRandomCard3.lblName.text = self.arrCards[0][key]
             self.viewRandomCard3.ivImage.image = UIImage(named: key)
         }
-        for key in self.arrCards[3].keys {
-            self.viewRandomCard4.lblName.text = self.arrCards[3][key]
+        // 출력한 카드는 제거
+        self.arrCards.remove(at: 0)
+        
+        for key in self.arrCards[0].keys {
+            self.viewRandomCard4.lblName.text = self.arrCards[0][key]
             self.viewRandomCard4.ivImage.image = UIImage(named: key)
         }
-        for key in self.arrCards[4].keys {
-            self.viewRandomCard5.lblName.text = self.arrCards[4][key]
+        // 출력한 카드는 제거
+        self.arrCards.remove(at: 0)
+        
+        for key in self.arrCards[0].keys {
+            self.viewRandomCard5.lblName.text = self.arrCards[0][key]
             self.viewRandomCard5.ivImage.image = UIImage(named: key)
         }
-        for key in self.arrCards[5].keys {
-            self.viewRandomCard6.lblName.text = self.arrCards[5][key]
+        // 출력한 카드는 제거
+        self.arrCards.remove(at: 0)
+        
+        for key in self.arrCards[0].keys {
+            self.viewRandomCard6.lblName.text = self.arrCards[0][key]
             self.viewRandomCard6.ivImage.image = UIImage(named: key)
         }
-        
-//        self.viewRandomCard2.lblName.text = self.arrCards[1]
-//        self.viewRandomCard3.lblName.text = self.arrCards[2]
-//        self.viewRandomCard4.lblName.text = self.arrCards[3]
-//        self.viewRandomCard5.lblName.text = self.arrCards[4]
-//        self.viewRandomCard6.lblName.text = self.arrCards[5]
+        // 출력한 카드는 제거
+        self.arrCards.remove(at: 0)
         
         self.viewCard1.addSubview(viewRandomCard1)
         self.viewCard2.addSubview(viewRandomCard2)
@@ -289,6 +299,11 @@ class ViewController: UIViewController {
         self.viewCard4.addSubview(viewRandomCard4)
         self.viewCard5.addSubview(viewRandomCard5)
         self.viewCard6.addSubview(viewRandomCard6)
+        
+        self.iRemainCardCount = self.arrCards.count
+        print("Remain Card Count = \(self.iRemainCardCount)")
+        self.lblRemainCards.text = "남은카드: \(self.iRemainCardCount)"
+        
         
         self.resetTimer()
         self.btnViewCard.isEnabled = false
