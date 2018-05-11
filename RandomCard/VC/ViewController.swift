@@ -220,6 +220,17 @@ class ViewController: UIViewController {
                 
             } else {
                 print("Card is empty")
+                let message = "카드가 없어요!!!"
+                let alert = UIAlertController(title: "게임 종료", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: { Void in
+                    self.btnViewCard.isEnabled = true
+                    self.isBlockCertNumberAction = false
+                    self.lblTimer.text = "00:00"
+                    self.stopTimer()
+                })
+                
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
