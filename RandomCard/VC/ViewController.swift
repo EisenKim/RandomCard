@@ -103,6 +103,13 @@ class ViewController: UIViewController {
         self.viewCard5.layer.cornerRadius = 8.0
         self.viewCard6.layer.cornerRadius = 8.0
         
+        self.viewCard1.layer.borderWidth = 1
+        self.viewCard2.layer.borderWidth = 1
+        self.viewCard3.layer.borderWidth = 1
+        self.viewCard4.layer.borderWidth = 1
+        self.viewCard5.layer.borderWidth = 1
+        self.viewCard6.layer.borderWidth = 1
+        
         self.viewRandomCard1 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         self.viewRandomCard2 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
         self.viewRandomCard3 = Bundle.main.loadNibNamed("CardView", owner: self, options: nil)?.first as! CardView
